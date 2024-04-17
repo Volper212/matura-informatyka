@@ -1,0 +1,1 @@
+SELECT nazwa_k `Nazwa kraju`, COUNT(*) `Liczba instalacji`, ROUND(COUNT(*) / (ludnosc_k / 1000000), 2) `Liczba instalacji na 1 000 000 mieszkańców` FROM instalacje NATURAL JOIN kraje WHERE ludnosc_k >= 1000000 GROUP BY kod_k ORDER BY COUNT(*) / (ludnosc_k / 1000000) DESC LIMIT 5;

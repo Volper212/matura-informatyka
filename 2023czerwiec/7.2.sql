@@ -1,0 +1,1 @@
+SELECT producent_u `Producent urządzeń`, COUNT(*) `Liczba instalacji` FROM urzadzenia NATURAL JOIN instalacje WHERE data_i LIKE "%.02.2019" GROUP BY producent_u ORDER BY COUNT(*) DESC LIMIT 1;

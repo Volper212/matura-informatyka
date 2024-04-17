@@ -1,0 +1,1 @@
+SELECT nazwa, ROUND(AVG(ocena), 2) `średnia ocen` FROM oceny NATURAL JOIN gry WHERE kategoria = "imprezowa" GROUP BY id_gry;

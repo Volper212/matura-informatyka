@@ -1,0 +1,1 @@
+SELECT typ_u `Typ urządzenia`, COUNT(*) `Liczba instalacji` FROM instalacje NATURAL JOIN urzadzenia GROUP BY typ_u;
