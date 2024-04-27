@@ -1,0 +1,1 @@
+SELECT imie, nazwisko, SUM(DATEDIFF(data_wyjazdu, data_przyjazdu) * cena) `Łączna cena` FROM noclegi NATURAL JOIN klienci NATURAL JOIN pokoje GROUP BY nr_dowodu HAVING `Łączna cena` > 2000;

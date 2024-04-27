@@ -1,0 +1,1 @@
+SELECT nr_pokoju FROM pokoje WHERE standard = 'N' AND nr_pokoju NOT IN (SELECT nr_pokoju FROM noclegi NATURAL JOIN klienci WHERE data_przyjazdu BETWEEN '2022-07-01' AND '2022-09-30' AND data_wyjazdu BETWEEN '2022-07-01' AND '2022-09-30' AND miejscowosc IN ('Opole', 'Katowice'));
