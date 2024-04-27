@@ -1,0 +1,7 @@
+*
+!.gitattributes
+!/.gitignore
+!/*/
+!/*/[0-9]*
+!/*/done.pdf
+*old
