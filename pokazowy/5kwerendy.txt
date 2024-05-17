@@ -1,0 +1,8 @@
+5.1.
+SELECT RIGHT(Data_przybycia, 4) rok, COUNT(*) liczba_wplyniec FROM przybycia GROUP BY rok;
+5.2.
+CREATE OR REPLACE TABLE statki_przybycia(Nabrzeze VARCHAR(255), NajwiekszaLadownosc INT);
+INSERT INTO statki_przybycia SELECT Nabrzeze, MAX(Ladownosc) NajwiekszaLadownosc FROM statki NATURAL JOIN przybycia GROUP BY Nabrzeze;
+SELECT DISTINCT Nabrzeze, Nazwa_statku, Ladownosc FROM statki NATURAL JOIN przybycia WHERE Ladownosc = (SELECT NajwiekszaLadownosc FROM statki_przybycia WHERE statki_przybycia.Nabrzeze = przybycia.Nabrzeze);
+5.3.
+SELECT DISTINCT Nabrzeze FROM przybycia WHERE Nabrzeze NOT IN (SELECT Nabrzeze FROM przybycia NATURAL JOIN kody WHERE Kontynent = "Europa");
