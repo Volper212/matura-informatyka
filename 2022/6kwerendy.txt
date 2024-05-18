@@ -1,0 +1,8 @@
+6.1.
+SELECT COUNT(Wejscie) FROM ewidencja NATURAL JOIN uczen NATURAL JOIN klasa WHERE Imie LIKE "%a" AND ProfilKlasy = "biologiczno-chemiczny";
+6.2.
+SELECT DATE(Wejscie) `Data wejścia`, COUNT(*) `Liczba uczniów, którzy nie spóźnili się do szkoły` FROM ewidencja WHERE TIME_TO_SEC(TIMEDIFF(TIME(Wejscie), "08:00")) <= 0 GROUP BY `Data wejścia`;
+6.3.
+SELECT IdUcznia, Imie, Nazwisko FROM ewidencja NATURAL JOIN uczen GROUP BY IdUcznia ORDER BY SUM(TIME_TO_SEC(TIMEDIFF(Wyjscie, Wejscie))) DESC LIMIT 3;
+6.4.
+SELECT Imie, Nazwisko FROM uczen WHERE IdUcznia NOT IN (SELECT IdUcznia FROM ewidencja WHERE DATE(Wejscie) = "2022-04-06");
